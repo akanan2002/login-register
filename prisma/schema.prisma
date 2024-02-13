@@ -1,0 +1,86 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+    id        Int    @id @default(autoincrement())
+    firstName String
+    lastName  String
+    email     String
+
+    @@map("users")
+}
+
+model style {
+    id         Int    @id @default(autoincrement())
+    style_name String
+
+    @@map("styles")
+}
+
+model Target_group {
+    id     Int    @id @default(autoincrement())
+    gender String
+    age    String
+    Taste  String
+
+    @@map("Target_groups")
+}
+
+model Dressing_steps {
+    id            Int    @id @default(autoincrement())
+    chooseclothes String
+    makeup        String
+    hairstyle     String
+
+    @@map("Dressing_steps")
+}
+
+model Examples_obtained {
+    id              Int    @id @default(autoincrement())
+    sample_received Int
+    refer_id        String
+
+    @@map("Examples_obtaineds")
+}
+
+model savethe_image {
+    id          Int    @id @default(autoincrement())
+    url         String
+    sharephotos String
+    device      String
+
+    @@map("savethe_images")
+}
+
+model Additional_advice {
+    id         Int    @id @default(autoincrement())
+    hair_color String
+    clothes    String
+
+    @@map("Additional_advices")
+}
+
+model Citingthesource {
+    id     Int    @id @default(autoincrement())
+    source String
+
+    @@map("Citingthesources")
+}
+
+model comment {
+    id          Int    @id @default(autoincrement())
+    coment      Int
+    contact     String
+    givearating Int
+
+    @@map("comments")
+}
